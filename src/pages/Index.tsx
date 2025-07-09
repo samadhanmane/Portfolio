@@ -22,7 +22,7 @@ const Index = () => {
   const downloadResume = () => {
     // Create a temporary link element to trigger download
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // You'll need to add your resume PDF to the public folder
+    link.href = '/Samadhan_resume (1).pdf'; // You'll need to add your resume PDF to the public folder
     link.download = 'Samadhan_Mane_Resume.pdf';
     document.body.appendChild(link);
     link.click();

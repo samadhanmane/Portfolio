@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="8" fill="black"/>
-  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="16">SM</text>
+  <rect width="32" height="32" rx="6" fill="#0C0C0B"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="5.5" stroke="rgba(243,241,234,0.1)"/>
+  <text x="46%" y="54%" text-anchor="middle" dominant-baseline="middle" fill="#F3F1EA" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="13" letter-spacing="-0.5">SM</text>
+  <circle cx="24" cy="10" r="2.5" fill="#E89A3C"/>
 </svg> 

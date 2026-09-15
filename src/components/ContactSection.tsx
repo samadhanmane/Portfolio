@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Github, Send, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
-const ContactSection = () => {
+export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
+    name: '',
+    email: '',
     subject: '',
     message: ''
   });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
@@ -18,175 +20,181 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const { subject, message } = formData;
-    const mailtoLink = `mailto:samadhanmane2324@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-    
+    const { name, email, subject, message } = formData;
+    const bodyText = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    const mailtoLink = `mailto:samadhanmane2324@gmail.com?subject=${encodeURIComponent(subject || 'AI Engineering Opportunity')}&body=${encodeURIComponent(bodyText)}`;
     window.location.href = mailtoLink;
-  };
-
-  const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'samadhanmane2324@gmail.com', href: 'mailto:samadhanmane2324@gmail.com' },
-    { icon: Phone, label: 'Phone', value: '+91 8010427685', href: 'tel:+918010427685' },
-    { icon: MapPin, label: 'Location', value: 'Pune, Maharashtra, India', href: '#' }
-  ];
-
-  const socialLinks = [
-    { icon: Github, href: 'https://github.com/SamadhanMane', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/samadhan-mane/', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://x.com/Samadha90118157', label: 'Twitter' }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+    setSubmitted(true);
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-950">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: false, margin: "-100px" }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
-          <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities and interesting projects. 
-            Let's connect and build something amazing together.
-          </p>
-        </motion.div>
+    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-[#F3F1EA]/10">
+      <div className="flex items-center space-x-3 font-mono text-xs text-[#A7A59D] uppercase tracking-widest mb-4">
+        <span className="text-[#E89A3C]">06</span>
+        <span>//</span>
+        <span>INITIALIZE CONNECTION</span>
+      </div>
 
-        <motion.div 
-          className="grid md:grid-cols-2 gap-12"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, margin: "-100px" }}
-        >
-          <motion.div
-            variants={itemVariants}
-            className="space-y-8"
-          >
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-              <div className="space-y-4">
-                {contactInfo.map((item, index) => (
-                  <motion.a
-                    key={index}
-                    href={item.href}
-                    className="flex items-center space-x-4 p-4 bg-gray-900/50 rounded-lg hover:bg-gray-900 transition-colors group"
-                    variants={itemVariants}
-                    whileHover={{ 
-                      x: 10,
-                      transition: { duration: 0.2 }
-                    }}
-                  >
-                    <motion.div 
-                      className="p-3 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <item.icon size={20} />
-                    </motion.div>
-                    <div>
-                      <p className="text-sm text-gray-400">{item.label}</p>
-                      <p className="font-medium">{item.value}</p>
-                    </div>
-                  </motion.a>
-                ))}
+      <div className="grid lg:grid-cols-12 gap-12 items-start">
+        {/* Left Column: Direct channels and statement */}
+        <div className="lg:col-span-6 space-y-8">
+          <div>
+            <h2 className="font-sans text-fluid-section font-bold tracking-tight text-[#F3F1EA]">
+              Let’s build something intelligent.
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-[#A7A59D] leading-relaxed">
+              I am open to AI/ML engineering roles, conversational AI and RAG pipeline engineering, research collaborations, and production systems development.
+            </p>
+          </div>
+
+          <div className="space-y-4 font-mono text-xs">
+            <a
+              href="mailto:samadhanmane2324@gmail.com"
+              className="flex items-center justify-between p-4 bg-[#131311] border border-[#F3F1EA]/10 rounded-lg hover:border-[#E89A3C] transition-colors group"
+            >
+              <div className="flex items-center space-x-3">
+                <Mail size={16} className="text-[#E89A3C]" />
+                <div>
+                  <div className="text-[10px] text-[#6E6C65] uppercase">PRIMARY INBOX</div>
+                  <div className="text-sm font-sans font-medium text-[#F3F1EA] group-hover:text-[#E89A3C] transition-colors">
+                    samadhanmane2324@gmail.com
+                  </div>
+                </div>
+              </div>
+              <ArrowUpRight size={16} className="text-[#6E6C65] group-hover:text-[#E89A3C] transition-colors" />
+            </a>
+
+            <a
+              href="https://linkedin.com/in/samadhan-mane"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-between p-4 bg-[#131311] border border-[#F3F1EA]/10 rounded-lg hover:border-[#E89A3C] transition-colors group"
+            >
+              <div className="flex items-center space-x-3">
+                <Linkedin size={16} className="text-[#E89A3C]" />
+                <div>
+                  <div className="text-[10px] text-[#6E6C65] uppercase">PROFESSIONAL NETWORK</div>
+                  <div className="text-sm font-sans font-medium text-[#F3F1EA] group-hover:text-[#E89A3C] transition-colors">
+                    linkedin.com/in/samadhan-mane
+                  </div>
+                </div>
+              </div>
+              <ArrowUpRight size={16} className="text-[#6E6C65] group-hover:text-[#E89A3C] transition-colors" />
+            </a>
+
+            <a
+              href="https://github.com/samadhanmane"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-between p-4 bg-[#131311] border border-[#F3F1EA]/10 rounded-lg hover:border-[#E89A3C] transition-colors group"
+            >
+              <div className="flex items-center space-x-3">
+                <Github size={16} className="text-[#E89A3C]" />
+                <div>
+                  <div className="text-[10px] text-[#6E6C65] uppercase">SOURCE REPOSITORIES</div>
+                  <div className="text-sm font-sans font-medium text-[#F3F1EA] group-hover:text-[#E89A3C] transition-colors">
+                    github.com/samadhanmane
+                  </div>
+                </div>
+              </div>
+              <ArrowUpRight size={16} className="text-[#6E6C65] group-hover:text-[#E89A3C] transition-colors" />
+            </a>
+
+            <div className="flex items-center justify-between p-4 bg-[#131311] border border-[#F3F1EA]/10 rounded-lg">
+              <div className="flex items-center space-x-3">
+                <MapPin size={16} className="text-[#E89A3C]" />
+                <div>
+                  <div className="text-[10px] text-[#6E6C65] uppercase">LOCATION</div>
+                  <div className="text-sm font-sans font-medium text-[#F3F1EA]">
+                    Pune, Maharashtra, India
+                  </div>
+                </div>
+              </div>
+              <span className="text-[10px] text-[#6E6C65] uppercase">IST (UTC+5:30)</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: Functional Message Dispatcher */}
+        <div className="lg:col-span-6 bg-[#131311] border border-[#F3F1EA]/10 rounded-lg p-6 sm:p-8">
+          <div className="font-mono text-xs text-[#E89A3C] uppercase tracking-wider mb-2">
+            DISPATCH MESSAGE
+          </div>
+          <h3 className="font-sans text-xl font-bold text-[#F3F1EA] mb-6">
+            Direct Inquiry
+          </h3>
+
+          <form onSubmit={handleSubmit} className="space-y-4 font-sans text-sm">
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="name" className="block text-xs font-mono text-[#A7A59D] uppercase mb-1.5">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="e.g. Alex Smith"
+                  className="w-full px-3.5 py-2.5 bg-[#0C0C0B] border border-[#F3F1EA]/10 rounded text-[#F3F1EA] focus:outline-none focus:border-[#E89A3C] transition-colors"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-xs font-mono text-[#A7A59D] uppercase mb-1.5">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="alex@company.com"
+                  className="w-full px-3.5 py-2.5 bg-[#0C0C0B] border border-[#F3F1EA]/10 rounded text-[#F3F1EA] focus:outline-none focus:border-[#E89A3C] transition-colors"
+                />
               </div>
             </div>
 
-            <motion.div variants={itemVariants}>
-              <h3 className="text-xl font-bold mb-4">Follow Me</h3>
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    className="p-3 bg-gray-900/50 rounded-lg hover:bg-white hover:text-black transition-colors"
-                    aria-label={social.label}
-                    whileHover={{ 
-                      y: -5,
-                      scale: 1.1
-                    }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <social.icon size={20} />
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
+            <div>
+              <label htmlFor="subject" className="block text-xs font-mono text-[#A7A59D] uppercase mb-1.5">
+                Subject
+              </label>
+              <input
+                type="text"
+                id="subject"
+                value={formData.subject}
+                onChange={handleInputChange}
+                required
+                placeholder="AI Engineering Role / Collaboration"
+                className="w-full px-3.5 py-2.5 bg-[#0C0C0B] border border-[#F3F1EA]/10 rounded text-[#F3F1EA] focus:outline-none focus:border-[#E89A3C] transition-colors"
+              />
+            </div>
 
-          <motion.div
-            variants={itemVariants}
-          >
-            <motion.form 
-              className="space-y-6"
-              variants={containerVariants}
-              onSubmit={handleSubmit}
+            <div>
+              <label htmlFor="message" className="block text-xs font-mono text-[#A7A59D] uppercase mb-1.5">
+                Brief / Context
+              </label>
+              <textarea
+                id="message"
+                rows={5}
+                value={formData.message}
+                onChange={handleInputChange}
+                required
+                placeholder="Describe your project, timeline, or engineering opportunity..."
+                className="w-full px-3.5 py-2.5 bg-[#0C0C0B] border border-[#F3F1EA]/10 rounded text-[#F3F1EA] focus:outline-none focus:border-[#E89A3C] transition-colors resize-none"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-3 bg-[#E89A3C] text-[#0C0C0B] font-mono font-semibold text-xs rounded hover:bg-[#F3F1EA] transition-colors flex items-center justify-center space-x-2"
             >
-              <motion.div variants={itemVariants}>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:border-white transition-colors"
-                  placeholder="Project Discussion"
-                  required
-                />
-              </motion.div>
-              
-              <motion.div variants={itemVariants}>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-                <textarea
-                  id="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={6}
-                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:border-white transition-colors resize-none"
-                  placeholder="Tell me about your project..."
-                  required
-                />
-              </motion.div>
-              
-              <motion.button
-                type="submit"
-                className="w-full bg-white text-black py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
-                variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Send Message
-              </motion.button>
-            </motion.form>
-          </motion.div>
-        </motion.div>
+              <Send size={14} />
+              <span>SEND VIA EMAIL CLIENT</span>
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   );

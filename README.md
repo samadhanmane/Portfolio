@@ -5,7 +5,7 @@ This project showcases my work, skills, and projects as a web developer, highlig
 
 ## 🌐 Live Demo
 
-👉 [View Live Portfolio](https://samadhanmane.github.io/Portfolio/)
+👉 [View Live Portfolio](https://samadhanportfolio.vercel.app)
 
 ---
 

@@ -85,7 +85,7 @@ export const AboutSection: React.FC = () => {
 
             <div className="flex flex-wrap gap-4 pt-1 font-mono text-xs">
               <a
-                href="/Samadhan_resume.pdf"
+                href="/Samadhan_Mane.pdf"
                 download="Samadhan_Mane_AIML_Resume.pdf"
                 className="inline-flex items-center space-x-2 bg-[#E89A3C] text-[#0C0C0B] px-5 py-2.5 rounded font-semibold hover:bg-[#F3F1EA] transition-colors"
               >
@@ -93,7 +93,7 @@ export const AboutSection: React.FC = () => {
                 <span>DOWNLOAD RESUME (PDF)</span>
               </a>
               <a
-                href="/Samadhan_resume.pdf"
+                href="/Samadhan_Mane.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center space-x-2 border border-[#F3F1EA]/20 text-[#F3F1EA] px-5 py-2.5 rounded hover:border-[#E89A3C] transition-colors"

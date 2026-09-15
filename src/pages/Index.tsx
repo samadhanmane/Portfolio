@@ -73,7 +73,7 @@ export const Index: React.FC = () => {
             </button>
 
             <a
-              href="/Samadhan_resume.pdf"
+              href="/Samadhan_Mane.pdf"
               download="Samadhan_Mane_AIML_Resume.pdf"
               className="inline-flex items-center space-x-2 border border-[#F3F1EA]/20 bg-[#131311] text-[#F3F1EA] px-6 py-3.5 rounded hover:border-[#E89A3C] hover:text-[#E89A3C] transition-colors"
             >

@@ -111,7 +111,7 @@ export const Navigation: React.FC = () => {
           {/* Right Action: Resume & Links */}
           <div className="hidden sm:flex items-center space-x-3 font-mono text-xs">
             <a
-              href="/Samadhan_resume.pdf"
+              href="/Samadhan_Mane.pdf"
               download="Samadhan_Mane_AIML_Resume.pdf"
               className="inline-flex items-center space-x-1.5 px-3 py-1.5 border border-[#F3F1EA]/15 rounded hover:border-[#E89A3C] hover:text-[#E89A3C] text-[#F3F1EA] transition-all bg-[#131311]"
             >
@@ -132,7 +132,7 @@ export const Navigation: React.FC = () => {
           {/* Mobile menu trigger */}
           <div className="flex md:hidden items-center space-x-2">
             <a
-              href="/Samadhan_resume.pdf"
+              href="/Samadhan_Mane.pdf"
               download="Samadhan_Mane_AIML_Resume.pdf"
               className="px-2.5 py-1 text-[11px] font-mono border border-[#F3F1EA]/15 rounded text-[#E89A3C]"
             >
@@ -168,7 +168,7 @@ export const Navigation: React.FC = () => {
             ))}
             <div className="pt-4 border-t border-[#F3F1EA]/10 flex flex-col space-y-3 font-mono text-xs">
               <a
-                href="/Samadhan_resume.pdf"
+                href="/Samadhan_Mane.pdf"
                 download="Samadhan_Mane_AIML_Resume.pdf"
                 className="flex items-center justify-center space-x-2 py-2.5 bg-[#E89A3C] text-black font-semibold rounded"
               >

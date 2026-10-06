@@ -43,9 +43,9 @@ export const OpenSourceSection: React.FC = () => {
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            <span className="inline-flex items-center space-x-1.5 font-mono text-[11px] text-[#E89A3C] bg-[#E89A3C]/10 border border-[#E89A3C]/25 px-2.5 py-1 rounded">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E89A3C] animate-pulse" />
-              <span>PR #3290 · UNDER REVIEW</span>
+            <span className="inline-flex items-center space-x-1.5 font-mono text-[11px] text-emerald-400 bg-emerald-400/10 border border-emerald-400/25 px-2.5 py-1 rounded">
+              <CheckCircle2 size={12} />
+              <span>MERGED</span>
             </span>
             <span className="font-mono text-[11px] text-[#A7A59D] border border-[#F3F1EA]/10 bg-[#0C0C0B] px-2.5 py-1 rounded hidden sm:inline-block">
               ISSUE #3201
@@ -63,7 +63,7 @@ export const OpenSourceSection: React.FC = () => {
               Model-Level defaultReasoningEffort Fallback Precedence
             </p>
             <p className="text-base text-[#A7A59D] leading-relaxed">
-              Contributed to an open-source AI platform by fixing model-level LLM reasoning-effort configuration and implementing request → model → platform fallback precedence. Added regression tests and validated the fix with 195 passing tests.
+              Contributed to an open-source AI platform by fixing model-level LLM reasoning-effort configuration and implementing request → model → platform fallback precedence. My fix in PR #3290 addressed the core issue and was later incorporated into the merged PR #3828.
             </p>
 
             {/* Technologies */}
@@ -90,6 +90,16 @@ export const OpenSourceSection: React.FC = () => {
                 <ArrowUpRight size={14} />
               </a>
 
+              <a
+                href="https://github.com/pipeshub-ai/pipeshub-ai/pull/3828"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center space-x-2 border border-emerald-400/30 bg-emerald-400/10 text-emerald-400 px-4 py-2.5 rounded font-semibold hover:border-emerald-400/60 transition-colors"
+              >
+                <span>MERGED PR #3828</span>
+                <ArrowUpRight size={14} />
+              </a>
+
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
                 className="inline-flex items-center space-x-2 border border-[#F3F1EA]/20 bg-[#171715] text-[#F3F1EA] px-4 py-2.5 rounded hover:border-[#E89A3C] transition-colors"
@@ -100,28 +110,34 @@ export const OpenSourceSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Test & Verification Metric Callouts */}
+          {/* Contribution Timeline */}
           <div className="lg:col-span-4 bg-[#0C0C0B] border border-[#F3F1EA]/10 rounded-lg p-6 space-y-4 font-mono text-xs">
             <div className="text-[#A7A59D] uppercase tracking-wider pb-2 border-b border-[#F3F1EA]/10 flex items-center justify-between">
-              <span>TEST SUITE VERIFICATION</span>
-              <span className="text-emerald-400">100% PASS</span>
+              <span>CONTRIBUTION TIMELINE</span>
+              <span className="text-emerald-400">MERGED</span>
             </div>
 
             <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-[#A7A59D]">Total Passing Tests</span>
-                <span className="text-[#F3F1EA] font-bold text-sm">195 / 195</span>
+              <div className="flex items-start space-x-2">
+                <span className="text-[#E89A3C] mt-0.5">▸</span>
+                <div>
+                  <span className="text-[#F3F1EA] font-semibold block">PR #3290</span>
+                  <span className="text-[#6E6C65]">My contribution — core fix for Issue #3201</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-[#A7A59D]">Unit Test Suite</span>
-                <span className="text-emerald-400">190 / 190 Passed</span>
+              <div className="flex items-start space-x-2">
+                <span className="text-emerald-400 mt-0.5">▸</span>
+                <div>
+                  <span className="text-[#F3F1EA] font-semibold block">PR #3828</span>
+                  <span className="text-[#6E6C65]">Merged implementation incorporating the fix</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-[#A7A59D]">E2E Integration</span>
-                <span className="text-emerald-400">5 / 5 Passed</span>
-              </div>
-              <div className="pt-2 border-t border-[#F3F1EA]/10 text-[11px] text-[#6E6C65] font-sans">
-                CodeRabbit review investigation completed and accepted.
+              <div className="flex items-start space-x-2">
+                <span className="text-emerald-400 mt-0.5">✓</span>
+                <div>
+                  <span className="text-[#F3F1EA] font-semibold block">Issue #3201</span>
+                  <span className="text-[#6E6C65]">Resolved upstream</span>
+                </div>
               </div>
             </div>
           </div>
@@ -167,11 +183,11 @@ export const OpenSourceSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Code Review Dialogue note */}
+            {/* Outcome note */}
             <div className="p-4 bg-[#171715] border border-[#F3F1EA]/10 rounded-lg flex items-start space-x-3 text-xs text-[#A7A59D]">
               <ShieldCheck size={16} className="text-emerald-400 shrink-0 mt-0.5" />
               <div>
-                <strong className="text-[#F3F1EA]">Code Review Resolution:</strong> During review, CodeRabbit identified a potential configuration-schema question. I investigated the concern by testing the proposed alternative, discovered that removing root-level lookups broke required integration tests, and documented why both configuration paths were intentionally supported. The review was accepted.
+                <strong className="text-[#F3F1EA]">Outcome:</strong> The approach from PR #3290 was incorporated into merged PR #3828, resolving Issue #3201 upstream and shipping the fix to production.
               </div>
             </div>
           </div>

@@ -100,8 +100,8 @@ export const Index: React.FC = () => {
             <div className="text-[#F3F1EA] font-semibold mt-0.5">1st Place Neobim (₹1.8L)</div>
           </div>
           <div>
-            <div className="text-[10px] text-[#6E6C65] uppercase">OPEN SOURCE PR</div>
-            <div className="text-[#E89A3C] font-semibold mt-0.5">PipeHub AI (PR #3290)</div>
+            <div className="text-[10px] text-[#6E6C65] uppercase">OPEN SOURCE — MERGED</div>
+            <div className="text-emerald-400 font-semibold mt-0.5">PipeHub AI (PR #3290)</div>
           </div>
           <div>
             <div className="text-[10px] text-[#6E6C65] uppercase">AGENTIC RAG</div>

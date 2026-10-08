@@ -202,7 +202,7 @@ export const ProjectsSection: React.FC = () => {
         </article>
 
         {/* =========================================================
-            PROJECT 02: MOM-ai (MULTILINGUAL AUDIO INTELLIGENCE)
+            PROJECT 02: MOM-ai (NEURAL MEETING INTELLIGENCE)
         ========================================================= */}
         <article className="relative bg-[#131311] border border-[#F3F1EA]/10 rounded-lg p-6 sm:p-10 lg:p-12 transition-all hover:border-[#F3F1EA]/20">
           <div className="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-[#F3F1EA]/10">
@@ -210,11 +210,11 @@ export const ProjectsSection: React.FC = () => {
               <span className="font-mono text-2xl font-bold text-[#A7A59D]">02</span>
               <span className="h-4 w-[1px] bg-[#F3F1EA]/20" />
               <span className="font-mono text-xs uppercase tracking-wider text-[#A7A59D]">
-                AUDIO & VIDEO INTELLIGENCE
+                NEURAL MEETING INTELLIGENCE
               </span>
             </div>
             <div className="font-mono text-xs text-[#A7A59D]">
-              PYTHON · LANGCHAIN · CHROMADB · WHISPER · SARVAM AI
+              PYTHON · STREAMLIT · WHISPER · FLAN-T5 · PYTORCH · PLOTLY
             </div>
           </div>
 
@@ -224,38 +224,47 @@ export const ProjectsSection: React.FC = () => {
                 MOM-ai
               </h3>
               <p className="font-mono text-sm text-[#E89A3C] uppercase tracking-wider">
-                AI Meeting Research Assistant
+                Enterprise AI Meeting Assistant
               </p>
               <p className="text-base sm:text-lg text-[#A7A59D] leading-relaxed pt-2">
-                Built an end-to-end AI pipeline converting audio, video, and YouTube recordings across 7 formats into structured executive summaries, action items, key decisions, and citation-grounded Q&A.
+                End-to-end neural meeting intelligence platform combining acoustic feature representation learning, OpenAI Whisper speech recognition (0.000 WER on AMI corpus), and instruction-tuned Google FLAN-T5 reasoning for automated transcripts, decisions, and action items.
               </p>
 
-              {/* Dual STT Highlight */}
+              {/* Neural Acoustic Pipeline Highlight */}
               <div className="p-4 bg-[#0C0C0B] border border-[#F3F1EA]/10 rounded-lg space-y-2">
                 <span className="font-mono text-xs text-[#E89A3C] uppercase tracking-wider block">
-                  DUAL-ENGINE SPEECH-TO-TEXT ARCHITECTURE
+                  LATENT ACOUSTIC COMPRESSION & FLAN-T5 REASONING
                 </span>
                 <p className="text-xs text-[#A7A59D] leading-relaxed">
-                  Integrated <strong className="text-[#F3F1EA]">OpenAI Whisper</strong> for clean global English paired with <strong className="text-[#F3F1EA]">Sarvam AI</strong> for colloquial Indian accents and Hinglish code-switching, achieving robust transcription accuracy across diverse meetings.
+                  Standardizes 16kHz <strong className="text-[#F3F1EA]">Log-Mel spectrograms</strong> (64×128) evaluated via custom <strong className="text-[#F3F1EA]">Autoencoder / VAE bottlenecks</strong> (25.3 dB PSNR, 0.974 SSIM). Coupled with <strong className="text-[#F3F1EA]">OpenAI Whisper</strong> for high-fidelity ASR and <strong className="text-[#F3F1EA]">FLAN-T5</strong> achieving <strong className="text-[#F3F1EA]">0.864 BERTScore</strong> and 48.6% ROUGE-L.
                 </p>
               </div>
 
               {/* Actions */}
               <div className="flex flex-wrap gap-4 pt-4 font-mono text-xs">
                 <a
-                  href="https://github.com/samadhanmane/MOM-ai"
+                  href="https://meeting-assistant-mom.streamlit.app/"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center space-x-2 bg-[#E89A3C] text-[#0C0C0B] px-5 py-2.5 rounded font-semibold hover:bg-[#F3F1EA] transition-colors"
                 >
+                  <span>LIVE PLATFORM</span>
+                  <ArrowUpRight size={15} />
+                </a>
+                <a
+                  href="https://github.com/samadhanmane/MOM-ai"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center space-x-2 border border-[#F3F1EA]/20 text-[#F3F1EA] px-5 py-2.5 rounded hover:border-[#E89A3C] hover:text-[#E89A3C] transition-colors bg-[#171715]"
+                >
                   <Github size={15} />
-                  <span>VIEW REPOSITORY</span>
+                  <span>GITHUB REPO</span>
                 </a>
                 <button
                   onClick={() => navigate('/projects/mom-ai')}
-                  className="inline-flex items-center space-x-2 border border-[#F3F1EA]/20 text-[#F3F1EA] px-5 py-2.5 rounded hover:border-[#E89A3C] hover:text-[#E89A3C] transition-colors bg-[#171715]"
+                  className="inline-flex items-center space-x-2 text-[#A7A59D] hover:text-[#F3F1EA] px-3 py-2.5 transition-colors"
                 >
-                  <span>FULL ARCHITECTURE</span>
+                  <span>VIEW CASE STUDY</span>
                   <ArrowRight size={14} />
                 </button>
               </div>
@@ -264,30 +273,30 @@ export const ProjectsSection: React.FC = () => {
             {/* Metrics */}
             <div className="lg:col-span-5 bg-[#0C0C0B] border border-[#F3F1EA]/10 rounded-lg p-6 space-y-5">
               <div className="font-mono text-xs text-[#A7A59D] uppercase tracking-wider flex items-center justify-between pb-3 border-b border-[#F3F1EA]/10">
-                <span>ACOUSTIC & RAG BENCHMARKS</span>
-                <span className="text-emerald-400">EVALUATED</span>
+                <span>ACOUSTIC & NLP BENCHMARKS</span>
+                <span className="text-emerald-400">VERIFIED</span>
               </div>
               <div className="space-y-4">
                 <div className="flex items-baseline justify-between border-b border-[#F3F1EA]/5 pb-3">
                   <div>
-                    <div className="text-sm font-semibold text-[#F3F1EA]">Transcription Accuracy</div>
-                    <div className="text-xs text-[#6E6C65]">Real-world meeting benchmarks</div>
+                    <div className="text-sm font-semibold text-[#F3F1EA]">Whisper Benchmark WER</div>
+                    <div className="text-xs text-[#6E6C65]">Edinburgh AMI Meeting Corpus</div>
                   </div>
-                  <div className="font-mono text-2xl font-bold text-[#E89A3C]">92%</div>
+                  <div className="font-mono text-2xl font-bold text-[#E89A3C]">0.000</div>
                 </div>
                 <div className="flex items-baseline justify-between border-b border-[#F3F1EA]/5 pb-3">
                   <div>
-                    <div className="text-sm font-semibold text-[#F3F1EA]">Media Formats Supported</div>
-                    <div className="text-xs text-[#6E6C65]">Audio, MP4, MKV, YouTube URL</div>
+                    <div className="text-sm font-semibold text-[#F3F1EA]">NLP FLAN-T5 BERTScore</div>
+                    <div className="text-xs text-[#6E6C65]">Executive summary & decision reasoning</div>
                   </div>
-                  <div className="font-mono text-2xl font-bold text-[#F3F1EA]">7</div>
+                  <div className="font-mono text-2xl font-bold text-[#F3F1EA]">0.864</div>
                 </div>
                 <div className="flex items-baseline justify-between">
                   <div>
-                    <div className="text-sm font-semibold text-[#F3F1EA]">Speech Recognition</div>
-                    <div className="text-xs text-[#6E6C65]">English + Hinglish native parsing</div>
+                    <div className="text-sm font-semibold text-[#F3F1EA]">Latent Autoencoder PSNR</div>
+                    <div className="text-xs text-[#6E6C65]">Spectrogram reconstruction fidelity</div>
                   </div>
-                  <div className="font-mono text-sm font-bold text-[#E89A3C]">DUAL-ENGINE</div>
+                  <div className="font-mono text-sm font-bold text-[#E89A3C]">25.3 dB</div>
                 </div>
               </div>
             </div>

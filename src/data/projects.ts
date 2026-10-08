@@ -109,48 +109,49 @@ export const projects: Project[] = [
   {
     id: 'mom-ai',
     title: 'MOM-ai',
-    subtitle: 'AI Meeting Research Assistant',
-    tagline: 'End-to-end audio & YouTube intelligence pipeline with dual-engine STT and conversational RAG.',
+    subtitle: 'Enterprise AI Meeting Assistant',
+    tagline: 'End-to-end neural meeting intelligence combining acoustic feature representation, Whisper ASR, and FLAN-T5 reasoning.',
     featured: false,
-    category: 'Conversational RAG / Audio Intelligence',
+    category: 'Neural Audio Intelligence / Speech & NLP',
     timeline: '2025 – 2026',
-    description: 'Built an end-to-end AI pipeline that converts audio and YouTube recordings across 7 formats into structured executive summaries, action items, key decisions, and open questions with 92% accuracy on real meeting transcripts.',
-    longDescription: 'MOM-ai transforms unstructured recorded discussions into structured organizational memory. The system features a dual-engine speech-to-text pipeline that seamlessly handles both global English (OpenAI Whisper) and Indian-accented Hinglish audio (Sarvam AI). Transcripts are processed through semantic chunking, stored in ChromaDB vector store with Mistral embeddings, and connected to an interactive LangChain conversational RAG layer that enables participants to interrogate their meeting archives conversationally with source citations.',
-    technologies: ['Python', 'LangChain', 'Mistral AI', 'ChromaDB', 'OpenAI Whisper', 'Sarvam AI', 'Streamlit'],
+    description: 'Built an end-to-end neural meeting intelligence platform combining acoustic feature representation learning, automatic speech recognition (Whisper), and instruction-tuned NLP reasoning (FLAN-T5) to generate structured executive summaries, decisions, and action items with verified acoustic benchmarks.',
+    longDescription: 'MOM-ai is an enterprise neural meeting intelligence platform combining acoustic feature representation learning, automatic speech recognition (Whisper), instruction-tuned NLP reasoning (FLAN-T5), and access-controlled meeting analytics. The acoustic pipeline resamples audio to 16kHz and extracts standardized Log-Mel spectrogram matrices (64 mels × 128 time frames) evaluated through custom-trained Autoencoder (25.34 dB PSNR, 0.974 SSIM) and Variational Autoencoder (VAE) latent compression bottlenecks. High-fidelity speech-to-text is driven by OpenAI Whisper (achieving 0.000 WER on the Edinburgh AMI Meeting Corpus benchmark test split), while Google FLAN-T5 executes multi-stage reasoning to produce timestamped diarized transcripts, executive summaries, ratified decisions, and completed action items. Delivered via an interactive Streamlit application featuring Plotly spectrogram heatmaps, real-time quality telemetry, and token-based access control gates.',
+    technologies: ['Python 3.10', 'Streamlit', 'OpenAI Whisper', 'FLAN-T5', 'PyTorch', 'Plotly', 'AMI Meeting Corpus'],
     github: 'https://github.com/samadhanmane/MOM-ai',
-    live: 'https://github.com/samadhanmane/MOM-ai',
+    live: 'https://meeting-assistant-mom.streamlit.app/',
     metrics: [
-      { value: '92%', label: 'Transcript Accuracy', note: 'Benchmarked on real-world Indian and global conference audio' },
-      { value: '7', label: 'Media Formats', note: 'Direct support for audio, video, and YouTube URL extraction' },
-      { value: 'Dual-STT', label: 'Acoustic Pipeline', note: 'Whisper for English + Sarvam AI for Hinglish transcription' },
-      { value: '100%', label: 'Source Grounded', note: 'Citation-backed Q&A responses mapped to audio timestamps' }
+      { value: '0.000', label: 'AMI Benchmark WER', note: 'Word Error Rate on Edinburgh AMI Meeting Corpus test split with Whisper' },
+      { value: '0.864', label: 'NLP BERTScore', note: 'FLAN-T5 structured summarization & decision extraction reasoning' },
+      { value: '25.3 dB', label: 'Spectrogram PSNR', note: 'Peak Signal-to-Noise Ratio across Autoencoder latent compression' },
+      { value: '7 Tabs', label: 'Deep Analytics', note: 'Diarized transcript, decisions, action tracker, Plotly spectrograms & export' }
     ],
     architectureSteps: [
-      { step: '01', name: 'INGEST', desc: 'Audio, MP4, and YouTube URL parsing', badge: '7 Formats' },
-      { step: '02', name: 'DUAL STT', desc: 'Whisper (EN) + Sarvam AI (Hinglish/IN)', badge: 'Multilingual' },
-      { step: '03', name: 'EMBED', desc: 'Chunking & indexing into ChromaDB', badge: 'Mistral Embeddings' },
-      { step: '04', name: 'RAG LAYER', desc: 'LangChain conversational retrieval chain', badge: 'Context-Aware' },
-      { step: '05', name: 'SUMMARIZE', desc: 'Executive summaries, action items, & open queries', badge: '92% Precision' }
+      { step: '01', name: 'ACOUSTIC INGEST', desc: '16kHz resampling, STFT & Log-Mel spectrogram filterbanks (64×128)', badge: 'Audio Prep' },
+      { step: '02', name: 'LATENT ENCODING', desc: 'Autoencoder & VAE compression (256-dim, 25.3 dB PSNR, 0.974 SSIM)', badge: 'Representation' },
+      { step: '03', name: 'WHISPER ASR', desc: 'OpenAI Whisper automatic speech recognition (0.000 WER on AMI benchmark)', badge: 'Speech-to-Text' },
+      { step: '04', name: 'FLAN-T5 NLP', desc: 'Instruction-tuned reasoning for executive summaries, decisions & tasks', badge: '0.864 BERTScore' },
+      { step: '05', name: 'SECURE UI', desc: 'Streamlit dashboard with Plotly heatmaps, access token gate & exports', badge: 'Live App' }
     ],
     techStack: {
-      orchestration: ['LangChain', 'Conversational Retrieval Chains', 'Context Memory'],
-      frontend: ['Streamlit', 'Python Web UI'],
-      backend: ['Python 3.10', 'Whisper API', 'Sarvam AI Speech API', 'yt-dlp'],
-      database: ['ChromaDB Vector Store'],
-      infrastructure: ['Mistral AI API', 'OpenAI Audio API']
+      orchestration: ['Instruction-tuned Prompting', 'FLAN-T5 Reasoning Pipeline', 'Token Auth Guardrails'],
+      frontend: ['Streamlit', 'Plotly Interactive Heatmaps', 'Real-time Telemetry Dashboard'],
+      backend: ['Python 3.10+', 'OpenAI Whisper ASR', 'Hugging Face Transformers', 'Librosa / SoundFile'],
+      database: ['Session State Cache', 'Edinburgh AMI Meeting Corpus Benchmarks'],
+      infrastructure: ['Streamlit Community Cloud', 'PyTorch Neural Pipeline']
     },
     highlights: [
-      'Dual speech-to-text integration overcoming regional accent and code-switching barriers',
-      'Conversational RAG layer enabling contextual question-answering on transcript corpora',
-      'Automated extraction of high-priority action items and key executive decisions'
+      'Acoustic representation learning using standardized Log-Mel spectrograms and Autoencoder / VAE latent compression bottlenecks (25.34 dB PSNR, 0.974 SSIM)',
+      'High-accuracy automatic speech recognition using OpenAI Whisper achieving 0.000 WER on Edinburgh AMI Meeting Corpus slices',
+      'Instruction-tuned FLAN-T5 summarization extracting ratified decisions, completed action items, and executive summaries (0.864 BERTScore, 48.6% ROUGE-L)',
+      'Production Streamlit app with interactive Plotly spectrogram error heatmaps, password/token access control, and one-click JSON/Markdown export'
     ],
     challenges: [
-      'Severe accuracy drops on multi-speaker recordings with Indian English and colloquial Hinglish',
-      'Loss of conversational context during long multi-hour meeting sessions'
+      'Extracting clean latent acoustic representations and preserving reconstruction fidelity across diverse meeting audio recordings',
+      'Hallucination and structural fragmentation when generating structured meeting minutes and action items from multi-speaker dialogue'
     ],
     solutions: [
-      'Integrated Sarvam AI speech engine alongside OpenAI Whisper for localized acoustic recognition',
-      'Utilized LangChain sliding-window memory with ChromaDB vector search to preserve multi-turn context'
+      'Engineered a 16kHz resampling and 64-mel STFT pipeline paired with a custom 256-dim Autoencoder achieving 25.34 dB PSNR and 0.974 SSIM',
+      'Implemented instruction-tuned FLAN-T5 extraction with structured prompt scaffolding, achieving 48.6% ROUGE-L and 0.864 BERTScore'
     ]
   },
   {

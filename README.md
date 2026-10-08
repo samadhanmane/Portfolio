@@ -22,11 +22,12 @@
    - Fault-tolerant ingestion pipeline for 15+ formats using PyMuPDF & Tesseract OCR with **94% retrieval recall** via hybrid Pinecone indexing.
    - **Stack:** FastAPI, React, TypeScript, Pinecone, Groq, Docker, AWS.
 
-2. **[MOM-ai](https://github.com/samadhanmane/MOM-ai)** — *AI Meeting Research Assistant*
-   - End-to-end audio & YouTube intelligence pipeline converting recordings across 7 formats into structured executive summaries and action items.
-   - Dual-engine speech-to-text: OpenAI Whisper (English) + Sarvam AI (Hinglish/Indian accents) achieving **92% transcription accuracy**.
-   - Conversational RAG layer using LangChain, ChromaDB vector store, and Mistral embeddings.
-   - **Stack:** Python, LangChain, Mistral AI, ChromaDB, Whisper, Sarvam AI, Streamlit.
+2. **[MOM-ai](https://meeting-assistant-mom.streamlit.app/)** — *Enterprise AI Meeting Assistant* ([GitHub](https://github.com/samadhanmane/MOM-ai))
+   - End-to-end neural meeting intelligence platform combining acoustic feature representation learning, automatic speech recognition, and instruction-tuned NLP reasoning.
+   - Standardizes 16kHz audio into Log-Mel spectrogram matrices (64 mels × 128 frames) evaluated through custom-trained Autoencoder (25.34 dB PSNR, 0.974 SSIM) and VAE latent compression.
+   - Speech-to-text driven by OpenAI Whisper (**0.000 WER** on Edinburgh AMI Meeting Corpus benchmark test split).
+   - Structured reasoning & summarization via Google FLAN-T5 (**0.864 BERTScore**, 48.6% ROUGE-L) extracting timestamped diarized transcripts, executive summaries, ratified decisions, and completed action items.
+   - **Stack:** Python 3.10, Streamlit, PyTorch, OpenAI Whisper, Google FLAN-T5, Plotly, Edinburgh AMI Meeting Corpus.
 
 3. **[BookMyHall](https://book-my-hall.vercel.app/)** — *Multi-Tenant College Management Platform*
    - Enterprise facility management system powered by an autonomous transactional Gemini AI agent.

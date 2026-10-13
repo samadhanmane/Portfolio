@@ -94,7 +94,7 @@ export const ProjectDetail: React.FC = () => {
 
           {/* Direct CTA Buttons */}
           <div className="flex flex-wrap gap-4 pt-4 font-mono text-xs">
-            {project.live && (
+            {project.live && project.live.trim() !== '' && project.live !== project.github && (
               <a
                 href={project.live}
                 target="_blank"

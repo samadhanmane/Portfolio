@@ -14,6 +14,7 @@ export const ProjectsSection: React.FC = () => {
   const momProject = projects.find(p => p.id === 'mom-ai')!;
   const bookProject = projects.find(p => p.id === 'bookmyhall')!;
   const finProject = projects.find(p => p.id === 'finexplain')!;
+  const researchProject = projects.find(p => p.id === 'researchmind');
 
   return (
     <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -75,7 +76,7 @@ export const ProjectsSection: React.FC = () => {
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-4 pt-4 font-mono text-xs">
                 <a
-                  href="https://abyss-ai-gray.vercel.app/"
+                  href={abyssProject.live}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center space-x-2 bg-[#E89A3C] text-[#0C0C0B] px-5 py-2.5 rounded font-semibold hover:bg-[#F3F1EA] transition-colors"
@@ -84,7 +85,7 @@ export const ProjectsSection: React.FC = () => {
                   <ArrowUpRight size={15} />
                 </a>
                 <a
-                  href="https://github.com/samadhanmane/Abyss-ai"
+                  href={abyssProject.github}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center space-x-2 border border-[#F3F1EA]/20 text-[#F3F1EA] px-5 py-2.5 rounded hover:border-[#E89A3C] hover:text-[#E89A3C] transition-colors bg-[#171715]"
@@ -243,7 +244,7 @@ export const ProjectsSection: React.FC = () => {
               {/* Actions */}
               <div className="flex flex-wrap gap-4 pt-4 font-mono text-xs">
                 <a
-                  href="https://meeting-assistant-mom.streamlit.app/"
+                  href={momProject.live}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center space-x-2 bg-[#E89A3C] text-[#0C0C0B] px-5 py-2.5 rounded font-semibold hover:bg-[#F3F1EA] transition-colors"
@@ -252,7 +253,7 @@ export const ProjectsSection: React.FC = () => {
                   <ArrowUpRight size={15} />
                 </a>
                 <a
-                  href="https://github.com/samadhanmane/MOM-ai"
+                  href={momProject.github}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center space-x-2 border border-[#F3F1EA]/20 text-[#F3F1EA] px-5 py-2.5 rounded hover:border-[#E89A3C] hover:text-[#E89A3C] transition-colors bg-[#171715]"
@@ -361,7 +362,7 @@ export const ProjectsSection: React.FC = () => {
               {/* Actions */}
               <div className="flex flex-wrap gap-4 pt-4 font-mono text-xs">
                 <a
-                  href="https://book-my-hall.vercel.app"
+                  href={bookProject.live}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center space-x-2 bg-[#E89A3C] text-[#0C0C0B] px-5 py-2.5 rounded font-semibold hover:bg-[#F3F1EA] transition-colors"
@@ -370,7 +371,7 @@ export const ProjectsSection: React.FC = () => {
                   <ArrowUpRight size={15} />
                 </a>
                 <a
-                  href="https://github.com/SamadhanMane/BookMyHall"
+                  href={bookProject.github}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center space-x-2 border border-[#F3F1EA]/20 text-[#F3F1EA] px-5 py-2.5 rounded hover:border-[#E89A3C] hover:text-[#E89A3C] transition-colors bg-[#171715]"
@@ -452,18 +453,29 @@ export const ProjectsSection: React.FC = () => {
 
               {/* Actions */}
               <div className="flex flex-wrap gap-4 pt-4 font-mono text-xs">
+                {finProject.live && (
+                  <a
+                    href={finProject.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center space-x-2 bg-[#E89A3C] text-[#0C0C0B] px-5 py-2.5 rounded font-semibold hover:bg-[#F3F1EA] transition-colors"
+                  >
+                    <span>LIVE PLATFORM</span>
+                    <ArrowUpRight size={15} />
+                  </a>
+                )}
                 <a
-                  href="https://github.com/samadhanmane/FinExplain"
+                  href={finProject.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center space-x-2 bg-[#E89A3C] text-[#0C0C0B] px-5 py-2.5 rounded font-semibold hover:bg-[#F3F1EA] transition-colors"
+                  className="inline-flex items-center space-x-2 border border-[#F3F1EA]/20 text-[#F3F1EA] px-5 py-2.5 rounded hover:border-[#E89A3C] hover:text-[#E89A3C] transition-colors bg-[#171715]"
                 >
                   <Github size={15} />
-                  <span>VIEW REPOSITORY</span>
+                  <span>GITHUB REPO</span>
                 </a>
                 <button
                   onClick={() => navigate('/projects/finexplain')}
-                  className="inline-flex items-center space-x-2 border border-[#F3F1EA]/20 text-[#F3F1EA] px-5 py-2.5 rounded hover:border-[#E89A3C] hover:text-[#E89A3C] transition-colors bg-[#171715]"
+                  className="inline-flex items-center space-x-2 text-[#A7A59D] hover:text-[#F3F1EA] px-3 py-2.5 transition-colors"
                 >
                   <span>FULL CASE STUDY</span>
                   <ArrowRight size={14} />
@@ -562,16 +574,29 @@ export const ProjectsSection: React.FC = () => {
               </div>
 
               <div className="pt-6 flex items-center justify-between font-mono text-xs">
-                <a
-                  href="https://github.com/samadhanmane/ResearchMind"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center space-x-1.5 text-[#E89A3C] hover:text-[#F3F1EA] transition-colors"
-                >
-                  <Github size={13} />
-                  <span>GITHUB REPO</span>
-                  <ArrowUpRight size={13} />
-                </a>
+                <div className="flex items-center space-x-3">
+                  {researchProject?.live && researchProject.live.trim() !== '' && (
+                    <a
+                      href={researchProject.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center space-x-1 text-[#E89A3C] hover:text-[#F3F1EA] transition-colors font-semibold"
+                    >
+                      <span>LIVE DEMO</span>
+                      <ArrowUpRight size={13} />
+                    </a>
+                  )}
+                  <a
+                    href={researchProject?.github || "https://github.com/samadhanmane/ResearchMind"}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center space-x-1.5 text-[#A7A59D] hover:text-[#F3F1EA] transition-colors"
+                  >
+                    <Github size={13} />
+                    <span>GITHUB REPO</span>
+                    <ArrowUpRight size={13} />
+                  </a>
+                </div>
                 <button
                   onClick={() => navigate('/projects/researchmind')}
                   className="inline-flex items-center space-x-1 text-[#A7A59D] hover:text-[#F3F1EA] transition-colors"

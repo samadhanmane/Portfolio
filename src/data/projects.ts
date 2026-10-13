@@ -31,7 +31,7 @@ export interface Project {
   longDescription: string;
   technologies: string[];
   github: string;
-  live: string;
+  live?: string;
   image?: string;
   images?: string[];
   metrics: ProjectMetric[];
@@ -221,7 +221,7 @@ export const projects: Project[] = [
     longDescription: 'FinExplain is an explainable financial intelligence platform designed to eliminate the risks of LLM arithmetic hallucinations during corporate audit and investment analysis. The platform completely decouples numeric calculation from narrative reasoning: an automated Python/Pandas engine extracts and computes 18+ liquidity, solvency, and profitability ratios with 100% mathematical precision and 3-way financial statement reconciliation. These verified metrics and raw footnote disclosures are then fed to contextual LLM chains that explain the exact operational drivers behind quarter-over-quarter and year-over-year variances.',
     technologies: ['Python 3.11', 'FastAPI', 'Pandas', 'LangChain', 'PostgreSQL', 'Financial Modeling', 'Streamlit'],
     github: 'https://github.com/samadhanmane/FinExplain',
-    live: 'https://github.com/samadhanmane/FinExplain',
+    live: 'https://finexplain-ai.vercel.app/',
     metrics: [
       { value: '0', label: 'Arithmetic Errors', note: 'Deterministic Python math layer preventing LLM calculation hallucinations' },
       { value: '3-Way', label: 'Statement Reconciliation', note: 'Automated cross-check between Balance Sheet, Cash Flow, and Income' },
@@ -271,7 +271,6 @@ export const projects: Project[] = [
     longDescription: 'ResearchMind accelerates literature reviews and technical research by allowing users to ingest collections of academic papers, technical reports, and whitepapers. It extracts key methodologies, contrasts comparative findings, and answers cross-document queries with citation-backed summaries.',
     technologies: ['Python', 'LangChain', 'ChromaDB', 'Transformers', 'PyMuPDF'],
     github: 'https://github.com/samadhanmane/ResearchMind',
-    live: 'https://github.com/samadhanmane/ResearchMind',
     metrics: [
       { value: 'Multi-Doc', label: 'Comparative Synthesis', note: 'Cross-document citation and methodology extraction' },
       { value: 'Zero', label: 'Unverified Citations', note: 'Every claim grounded in indexed paper chunks' },
